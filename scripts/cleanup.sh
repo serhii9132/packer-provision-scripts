@@ -2,10 +2,15 @@
 
 set -e
 
+if command -v apt-get &> /dev/null; then
+    apt -y clean
+    apt -y autoclean
+    apt -y autoremove --purge
+elif command -v dnf &> /dev/null; then
+    dnf clean all
+fi
+
 rm -f /etc/ssh/ssh_host_*
-apt -y autoremove --purge
-apt -y clean
-apt -y autoclean
 
 truncate -s 0 /etc/machine-id
 rm -f /var/lib/dbus/machine-id
