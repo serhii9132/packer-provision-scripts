@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 MNT_POINT=/mnt
 
 apt install -y build-essential perl dkms make gcc bzip2
